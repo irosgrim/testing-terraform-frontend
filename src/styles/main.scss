@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.app {
+    max-width: 600px;
+    margin: 1rem auto;
+}
+.list {
+    border: 1px solid #b6cfe5;
+    list-style-type: none;
+    li {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.static {
+    li:nth-child(odd) {
+        background-color: #b6cfe5;
+    }
+}
+.server {
+    li:nth-child(odd) {
+        background-color: #c6e5b6;
+    }
+}
+.server-db {
+    li:nth-child(odd) {
+        background-color: #e5b6d7;
+    }
+}
+
+
+button {
+    margin-top: 1rem;
+    padding: 1rem;
+}
