@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const BACKEND_BASE_URL = "http://localhost:3000"
+const BACKEND_BASE_URL = "https://ioan-backend-service-jucwb6gsyq-ez.a.run.app"
 type ShoppingListItem = {
   id: number;
   title: string;
