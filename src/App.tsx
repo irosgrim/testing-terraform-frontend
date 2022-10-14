@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>AEKI NCB4</h1>
+      <h1>AEKI NCB4 V2</h1>
       <h2>Famous stuff</h2>
       <ul className="list static">
         {
