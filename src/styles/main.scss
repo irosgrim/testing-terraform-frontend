@@ -1,14 +1,22 @@
+$el-height: 40px;
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+ul {
+    list-style-type: none;
+}
+
 .app {
-    max-width: 600px;
+    max-width: 800px;
     margin: 1rem auto;
 }
+
 .list {
     border: 1px solid #b6cfe5;
+    border-radius: 4px;
     list-style-type: none;
     li {
         display: flex;
@@ -35,6 +43,242 @@
 
 
 button {
-    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #ababab;
+}
+
+button, input {
+    height: $el-height;
+}
+textarea {
+    padding: 0.2rem 0.5rem;
+}
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    input {
+        padding: 0 0.5rem;
+    }
+    >:not(:first-child) {
+        margin-left: 0.5rem;
+    }
+}
+
+.questions-container {
     padding: 1rem;
+    border: 1px solid #ababab;
+    border-radius: 4px;
+}
+.questions-list {
+    li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        textarea {
+            flex-grow: 1;
+        }
+        button {
+            margin-left: 1rem;
+        }
+    }
+}
+
+.m {
+    &b {
+       &-3 {
+        margin-bottom: 1rem;
+       }
+       &-2 {
+        margin-bottom: 0.5rem;
+       }
+    }
+    &t {
+        &-3 {
+            margin-top: 1rem;
+        }
+        &-2 {
+            margin-top: 0.5rem;
+        }
+    }
+    &l {
+        &-3 {
+            margin-left: 1rem;
+        }
+        &-2 {
+            margin-left: 0.5rem;
+        }
+    }
+    &r {
+        &-3 {
+            margin-right: 1rem;
+        }
+        &-2 {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.p {
+    &-3 {
+            padding: 1rem;
+        }
+    &-2 {
+        padding: 0.5rem;
+    }
+    &b {
+       &-3 {
+            padding-bottom: 1rem;
+       }
+       &-2 {
+            padding-bottom: 0.5rem;
+       }
+    }
+    &t {
+        &-3 {
+            padding-top: 1rem;
+        }
+        &-2 {
+            padding-top: 0.5rem;
+        }
+    }
+    &l {
+        &-3 {
+            padding-left: 1rem;
+        }
+        &-2 {
+            padding-left: 0.5rem;
+        }
+    }
+    &r {
+        &-3 {
+            padding-right: 1rem;
+        }
+        &-2 {
+            padding-right: 0.5rem;
+        }
+    }
+}
+
+.d-flex {
+    display: flex;
+}
+
+.room {
+    border: 1px solid #ababab;
+    border-radius: 4px;
+    flex-shrink: 1;
+    min-width: 200px;
+}
+
+.create {
+    width: 100%;
+}
+.description {
+    width: 100%;
+}
+.w {
+    &-100 {
+        width: 100%;
+    }
+}
+
+.vote {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .main {
+        flex-grow: 1;
+    }
+    .clients {
+        width: 200px;
+        border: 1px solid #ababab;
+        border-radius: 4px;
+        padding: 1rem;
+        margin-left: 1rem;
+    }
+}
+
+.client-questions {
+    .input-text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    li {
+        .question-label {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0 1rem;
+            &.selected {
+                border: 1px solid #2cc298;
+                background-color: #c6f3e8;
+                border-radius: 4px;
+            }
+            input {
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+
+.username {
+    font-weight: bold;
+    color: #ff3700;
+}
+
+.vote-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+    a {
+        background-color: #ffcd6f;
+        height: 100px;
+        width: 150px;
+        border: none;
+        margin: 0 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+    }
+    a:nth-child(2) {
+        background-color: #b0ffdc;
+    }
+}
+
+a, a:visited {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000000;
+}
+
+.template-buttons {
+    button {
+        margin: 0 0.2rem;
+    }
+}
+
+.main-nav {
+    display: flex;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    >:not(:first-child) {
+        margin-left: 1rem;
+    }
+    a, a:visited {
+        color: #057153;
+    }
+}
+
+.room-id {
+    a {
+        color: #0a71b9;
+    }
 }

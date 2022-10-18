@@ -1,0 +1,43 @@
+[
+    {
+        "title": "Pointing poker",
+        "question": "Pointing poker - vote for something",
+        "choices": [
+            "1 point",
+            "2 points",
+            "3 points",
+            "5 points",
+            "10 points"
+        ]
+    },
+    {
+        "title": "Lunch",
+        "question": "What should we have for lunch today?",
+        "choices": [
+            "Swedish food",
+            "Indian food",
+            "Pizza",
+            "I have my own"
+        ]
+    },
+    {
+        "title": "TS or JS",
+        "question": "Typescript or Vanilla JavaScript?",
+        "choices": [
+            "TS",
+            "JS"
+        ]
+    },
+    {
+        "title": "Programming languages",
+        "question": "Which programming language you like best?",
+        "choices": [
+            "Rust",
+            "C++",
+            "JS/TS",
+            "Java",
+            "Python",
+            "Prolog"
+        ]
+    }
+]
