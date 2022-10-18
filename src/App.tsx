@@ -23,7 +23,7 @@ const App = () => {
           </Link>
         </li>
       </ul>
-      <div className="mt-3">
+      <div className="page-container">
         <Routes>
           <Route path={`/`} element={<Home />} />
           <Route path={`/vote`} element={<Vote />} />
