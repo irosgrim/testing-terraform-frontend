@@ -60,11 +60,23 @@ textarea {
     align-items: center;
     justify-content: center;
     width: 100%;
+    flex-direction: column;
+     @media (min-width: 700px) { 
+        flex-direction: row;
+     }
     input {
+        width: 80%;
         padding: 0 0.5rem;
+         @media (min-width: 700px) { 
+            width: initial;
+         }
     }
     >:not(:first-child) {
-        margin-left: 0.5rem;
+        margin-top: 1rem;
+        @media (min-width: 700px) {
+            margin-top: 0;
+            margin-left: 0.5rem;
+        }
     }
 }
 
@@ -72,6 +84,11 @@ textarea {
     padding: 1rem;
     border: 1px solid #ababab;
     border-radius: 4px;
+    .q-buttons {
+        .b {
+            margin-right: 1rem;
+        }
+    }
 }
 .questions-list {
     li {
@@ -85,6 +102,11 @@ textarea {
             margin-left: 1rem;
         }
     }
+}
+.q-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .m {
@@ -124,8 +146,8 @@ textarea {
 
 .p {
     &-3 {
-            padding: 1rem;
-        }
+        padding: 1rem;
+    }
     &-2 {
         padding: 0.5rem;
     }
@@ -190,15 +212,25 @@ textarea {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+    @media (min-width: 700px) {
+        flex-direction: row;
+    }
     .main {
         flex-grow: 1;
     }
     .clients {
-        width: 200px;
+        width: 100%;
         border: 1px solid #ababab;
         border-radius: 4px;
         padding: 1rem;
-        margin-left: 1rem;
+        margin-top: 1rem;
+        @media (min-width: 700px) {
+            margin-left: 1rem;
+            margin-top: initial;
+            width: 200px;
+        }
     }
 }
 
@@ -260,8 +292,10 @@ a, a:visited {
 }
 
 .template-buttons {
+    display: flex;
+    flex-wrap: wrap;
     button {
-        margin: 0 0.2rem;
+        margin: 0 0.2rem 1rem 0;
     }
 }
 
@@ -281,4 +315,15 @@ a, a:visited {
     a {
         color: #0a71b9;
     }
+}
+.room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.disconnect {
+    background-color: #fbd6ce;
+    border: none;
 }

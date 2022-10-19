@@ -127,7 +127,12 @@ const VoteAdmin = () => {
 
     return (
         <div className="admin">
-            <h2>{connectedTo ? <span className="room-id">Room ID: <Link to={`/vote/client${search}`} target="_blank">{connectedTo}</Link></span> : "Vote on something"}</h2>
+            <div className="room-header">
+                <h2>{connectedTo ? <span className="room-id">Room ID: <Link to={`/vote/client${search}`} target="_blank">{connectedTo}</Link></span> : "Vote on something"}</h2>
+                {
+                    connectedTo && <button onClick={() => goBack()} className="disconnect">Disconnect</button>
+                }
+            </div>
             <div className="vote">
                 <div className="main">
                     <CreateQuestions
@@ -162,7 +167,6 @@ const VoteAdmin = () => {
                     </div>)
                 }
             </div>
-            <button onClick={() => goBack()}>Back</button>
         </div>
     )
 }
