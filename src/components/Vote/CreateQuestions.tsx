@@ -71,7 +71,7 @@ const CreateQuestions = ({ onCreateQuestions, onAskNewQuestion, connectedToRoom,
         <div>
             {
                 (!connectedToRoom || newQ) && (
-                    <div className="mb-3 template-buttons">
+                    <div className="template-buttons">
                         <button onClick={() => {
                             setQuestionsDescription("");
                             setQuestions([""]);
@@ -116,12 +116,12 @@ const CreateQuestions = ({ onCreateQuestions, onAskNewQuestion, connectedToRoom,
                                 {(votes.length > 0) && <span>{votes[i].length} votes</span>}
                                 {
                                     (!connectedToRoom || newQ) && (
-                                        <div>
+                                        <div className="q-buttons-container">
                                             <button
                                                 onClick={() => addNewQuestion(i)}
                                                 disabled={connectedToRoom !== null && !newQ}
                                             >
-                                                add new
+                                                new
                                             </button>
                                             <button
                                                 className="ml-3"
@@ -138,10 +138,11 @@ const CreateQuestions = ({ onCreateQuestions, onAskNewQuestion, connectedToRoom,
                         ))
                     }
                 </ul>
-                <div>
+                <div className="q-buttons">
                     {
                         (!connectedToRoom || newQ) && (
                             <button
+                                className="b"
                                 onClick={() => createQuestions()}
                                 disabled={questions.length < 2 || questionsDescription === "" || questions.filter(x => x === "").length > 0}
                             >
@@ -153,7 +154,7 @@ const CreateQuestions = ({ onCreateQuestions, onAskNewQuestion, connectedToRoom,
                         children
                     }
                     {
-                        (connectedToRoom && !newQ) && <button onClick={() => askNewQuestion()}>Ask a new question</button>
+                        (connectedToRoom && !newQ) && <button className="b" onClick={() => askNewQuestion()}>Ask a new question</button>
                     }
                 </div>
             </div>

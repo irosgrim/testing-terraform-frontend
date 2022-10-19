@@ -186,7 +186,20 @@ const JoinRoom = () => {
                 connectedTo && questions && (
                     <div>
                         <div>
-                            <h4>{connectedTo ? `Connected to: ${connectedTo}` : "Vote"}</h4>
+                            <div className="room-header">
+                                <h4>{connectedTo ? `Connected to: ${connectedTo}` : "Vote"}</h4>
+                                <button
+                                    className="disconnect"
+                                    onClick={() => {
+                                        socket?.send(JSON.stringify({ type: "leave", params: {} }));
+                                        socket?.close();
+                                        navigate(`/vote${search}`);
+                                    }
+                                    }
+                                >
+                                    Leave
+                                </button>
+                            </div>
                             <div className="vote mt-3 mb-3">
                                 <div className="main questions-container">
                                     <RenderQuestions
@@ -206,11 +219,6 @@ const JoinRoom = () => {
                             </div>
 
                         </div>
-                        <button onClick={() => {
-                            socket?.send(JSON.stringify({ type: "leave", params: {} }));
-                            socket?.close();
-                            navigate(`/vote${search}`);
-                        }}>Leave</button>
                     </div>
                 )
             }
