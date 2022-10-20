@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Routes, Route, Link, useLocation, useSearchParams } from "react-router-dom";
 import Home from './components/Home';
 import Vote from './components/Vote';
 import JoinRoom from './components/Vote/JoinRoom';

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { WS_BACKEND_URL } from "../../api";
 import { WSMessage, WS_MESSAGE_TYPE } from "../../types";
 import CreateQuestions from "./CreateQuestions"
@@ -17,6 +17,7 @@ const VoteAdmin = () => {
     const [clients, setClients] = useState<string[]>([]);
     const [votes, setVotes] = useState<string[][]>([]);
     const [broadcastResults, setBroadcastResults] = useState(false);
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const [newQuestion, setNewQuestion] = useState(true);
 
@@ -24,6 +25,11 @@ const VoteAdmin = () => {
     }
 
     useEffect(() => {
+        const { api_key } = Object.fromEntries([...searchParams]);
+        if (api_key) {
+            setSearchParams({ api_key })
+        }
+
         return () => {
             socket?.close();
         }
@@ -128,7 +134,7 @@ const VoteAdmin = () => {
     return (
         <div className="admin">
             <div className="room-header">
-                <h2>{connectedTo ? <span className="room-id">Room ID: <Link to={`/vote/client${search}`} target="_blank">{connectedTo}</Link></span> : "Vote on something"}</h2>
+                <h2>{connectedTo ? <span className="room-id">Room ID: <Link to={`/vote/client?api_key=${searchParams.get("api_key" || "")}&room_id=${connectedTo || ""}`} target="_blank">{connectedTo}</Link></span> : "Vote on something"}</h2>
                 {
                     connectedTo && <button onClick={() => goBack()} className="disconnect">Disconnect</button>
                 }

@@ -5,14 +5,11 @@ import { Result, WSMessage, WS_MESSAGE_TYPE } from "../../types";
 import ListOfClients from "./ListOfClients";
 import RenderQuestions from "./RenderQuestions";
 
-type JoinRoomProps = {
-    // onJoinRoom: () => void;
-}
 const JoinRoom = () => {
     const navigate = useNavigate();
     const { search } = useLocation();
     const joinRoomWithIdRef = useRef<HTMLInputElement>(null);
-    const nicknameRef = useRef<HTMLInputElement>(null);
+    const usernameRef = useRef<HTMLInputElement>(null);
     const [username, setUsername] = useState("");
     const [roomId, setRoomId] = useState("");
     const [socket, setSocket] = useState<WebSocket | null>(null);
@@ -24,28 +21,30 @@ const JoinRoom = () => {
 
     const [questions, setQuestions] = useState<WSMessage | null>(null);
     const [clients, setClients] = useState<string[]>([]);
+    const joinButtonRef = useRef<HTMLButtonElement>(null);
 
     const onSocketOpen = (e: Event) => console.log("Connected");
 
     useEffect(() => {
-        const uName = searchParams.get("username");
         const rId = searchParams.get("room_id");
-        console.log({ first: true, uName, rId })
-
-        if ((uName && rId) && (uName.length > 0 && uName.length < 30 && rId.length > 0 && rId.length < 50)) {
-            setUsername(uName);
-            setRoomId(rId);
-            console.log({ uName, rId })
-            joinRoom(rId, uName)
+        const uName = searchParams.get("username");
+        if (joinRoomWithIdRef) {
+            joinRoomWithIdRef.current!.value = (rId || "");
         }
+        if (usernameRef) {
+            usernameRef.current!.value = (uName || "");
+        }
+        setRoomId((rId || ""));
+        setUsername((uName || ""));
         return () => {
             setSocket(null);
         }
     }, [])
 
-    // useEffect(() => {
-    //     setSearchParams({ room_id: roomId, username: username })
-    // }, [roomId, username])
+    useEffect(() => {
+        // const apiKey = searchParams.get("api_key");
+        setSearchParams({ ...Object.fromEntries([...searchParams]), room_id: roomId, username: username })
+    }, [roomId, username])
 
     const onSocketMessageReceived = (e: MessageEvent) => {
         console.log('Message from server ', e.data);
@@ -157,7 +156,11 @@ const JoinRoom = () => {
         <>
             {
                 !connectedTo && (
-                    <div className="row">
+                    <form className="row" onSubmit={(e: any) => {
+                        e.preventDefault();
+                        joinButtonRef!.current!.disabled = true;
+                        joinRoom(roomId, username);
+                    }}>
                         <input
                             type="text"
                             placeholder="room id"
@@ -167,18 +170,16 @@ const JoinRoom = () => {
                         <input
                             type="text"
                             placeholder="username"
-                            ref={nicknameRef}
+                            ref={usernameRef}
                             onChange={(e) => setUsername(e.target.value!)}
                         />
                         <button
-                            onClick={(e: any) => {
-                                e.target.disabled = true;
-                                joinRoom(roomId, username);
-                            }}
+                            ref={joinButtonRef}
+                            type="submit"
                         >
                             Join existing room
                         </button>
-                    </div>
+                    </form>
                 )
             }
 

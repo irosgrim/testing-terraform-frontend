@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { BACKEND_BASE_URL } from "../../api";
 import { Hero, ShoppingListItem } from "../../types";
 
@@ -9,6 +9,11 @@ const Home = () => {
     const [shoppingList, setShoppingList] = useState<ShoppingListItem[]>([]);
     const [backendError, setBackendError] = useState<string | null>(null);
     const { search } = useLocation();
+    const [searchParam, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        setSearchParams({ api_key: searchParam.get("api_key") || "" })
+    }, [])
 
     useEffect(() => {
         fetch(BACKEND_BASE_URL + "/list" + search)
