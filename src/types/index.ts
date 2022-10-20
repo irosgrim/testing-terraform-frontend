@@ -1,3 +1,10 @@
+export type Hero = {
+  id: number;
+  name: string;
+  year: number;
+  sold: number;
+}
+
 export type ShoppingListItem = {
   id: number;
   title: string;
