@@ -29,10 +29,6 @@ const VoteAdmin = () => {
         if (api_key) {
             setSearchParams({ api_key })
         }
-
-        return () => {
-            socket?.close();
-        }
     }, [])
 
     const onSocketMessageReceived = (e: MessageEvent) => {

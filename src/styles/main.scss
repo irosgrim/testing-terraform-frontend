@@ -199,9 +199,7 @@ textarea {
 .create {
     width: 100%;
 }
-.description {
-    width: 100%;
-}
+
 .w {
     &-100 {
         width: 100%;
@@ -209,16 +207,15 @@ textarea {
 }
 
 .vote {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: column;
     @media (min-width: 700px) {
-        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
     }
     .main {
         flex-grow: 1;
+        .description {
+    width: 100%;
+}
     }
     .clients {
         width: 100%;
@@ -229,7 +226,7 @@ textarea {
         @media (min-width: 700px) {
             margin-left: 1rem;
             margin-top: initial;
-            width: 200px;
+            width: 25%;
         }
     }
 }
@@ -261,7 +258,7 @@ textarea {
 
 .username {
     font-weight: bold;
-    color: #ff3700;
+    color: #0b978e;
 }
 
 .vote-buttons {

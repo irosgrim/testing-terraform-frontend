@@ -14,10 +14,11 @@
         "title": "Lunch",
         "question": "What should we have for lunch today?",
         "choices": [
-            "Swedish food",
-            "Indian food",
+            "Köttbullar",
+            "Biryani",
             "Pizza",
-            "I have my own"
+            "Sushi",
+            "Ice cream"
         ]
     },
     {
@@ -38,6 +39,17 @@
             "Java",
             "Python",
             "Prolog"
+        ]
+    },
+    {
+        "title": "Important stuff",
+        "question": "How long should we work on friday?",
+        "choices": [
+            "4 hours",
+            "12 hours",
+            "8 hours",
+            "6 hours",
+            "Where is my beer?"
         ]
     }
 ]
